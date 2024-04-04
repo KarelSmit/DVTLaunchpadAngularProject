@@ -1,0 +1,24 @@
+<div class="first-section">
+<h1>Formula 1:</h1>
+  <p>Select Season:</p>
+  <app-season-select (seasonSelected)="this.seasonSelected = $event"></app-season-select>
+  @if (seasonSelected){
+    <p>Select Round:</p>
+    <app-round-select (roundSelected)="this.roundSelected = $event"></app-round-select>
+    <br>
+  }
+</div>
+<div class="second-section">
+  <h1>Results: {{f1Service.raceName}}</h1>
+  @if (roundSelected){
+    <app-podium/>
+    <app-result-table/>
+  }
+</div>
+<div class="third-section">
+@if(roundSelected){
+  <app-winner/>
+}
+</div>
+
+
