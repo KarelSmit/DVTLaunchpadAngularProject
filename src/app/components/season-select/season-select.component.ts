@@ -13,7 +13,7 @@ import {F1Service} from '../../services/f1.service';
   templateUrl: './season-select.component.html',
   styleUrl: './season-select.component.css'
 })
-export class SeasonSelectComponent{
+export class SeasonSelectComponent {
   @Output() seasonSelected = new EventEmitter<boolean>();
   year = '';
   f1Service = inject(F1Service);
@@ -24,7 +24,7 @@ export class SeasonSelectComponent{
     this.f1Service.getSeasons();
   }
 
-  changeYear(){
+  changeYear() {
     this.f1Service.getRounds(this.year);
     this.seasonSelected.emit(true);
   }

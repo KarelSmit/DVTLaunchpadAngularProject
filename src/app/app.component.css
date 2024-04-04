@@ -1,0 +1,32 @@
+.display {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  justify-content: center;
+
+  .section {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    padding: 1rem;
+  }
+
+  .first-section {
+    width: 20%;
+
+    h3 {
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+  }
+
+  .second-section {
+    width: 30%;
+  }
+
+  .third-section {
+    width: 30%;
+  }
+}
+
+

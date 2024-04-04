@@ -13,7 +13,7 @@ import {AsyncPipe} from '@angular/common';
   templateUrl: './podium.component.html',
   styleUrl: './podium.component.css'
 })
-export class PodiumComponent{
+export class PodiumComponent {
   f1Service = inject(F1Service);
   results$ = this.f1Service.results$;
 }

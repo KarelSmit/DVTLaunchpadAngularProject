@@ -1,0 +1,36 @@
+.podium {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+
+  .podium-col {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  padding-bottom: 10px;
+}
+
+#gold-step {
+  height: 200px;
+  border-radius: 5px;
+  background-color: gold;
+}
+
+#silver-step {
+  height: 160px;
+  border-radius: 5px;
+  background-color: silver;
+}
+
+#bronze-step {
+  height: 120px;
+  border-radius: 5px;
+  background-color: #93290c;
+}

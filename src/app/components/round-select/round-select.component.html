@@ -1,7 +1,8 @@
-@if (rounds$ | async; as rounds){
-  <select name="round-select" [(ngModel)]="race" (change)="changeRound()">
-    @for (round of rounds ;track round.round){
-      <option [ngValue]="round.round">{{round.round}} - {{round.raceName}}</option>
+@if (rounds$ | async; as rounds) {
+  <select class="custom-select" name="round-select" [(ngModel)]="race" (change)="changeRound()"
+          [selectedIndex]="race">
+    @for (round of rounds; track round.round) {
+      <option [ngValue]="round.round">{{ round.round }} - {{ round.raceName }}</option>
     }
   </select>
 }

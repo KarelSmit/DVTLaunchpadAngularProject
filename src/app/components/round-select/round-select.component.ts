@@ -12,13 +12,13 @@ import {F1Service} from '../../services/f1.service';
   templateUrl: './round-select.component.html',
   styleUrl: './round-select.component.css'
 })
-export class RoundSelectComponent{
+export class RoundSelectComponent {
   @Output() roundSelected = new EventEmitter<boolean>();
   race = '';
   f1Service = inject(F1Service);
   rounds$ = this.f1Service.rounds$;
 
-  changeRound(){
+  changeRound() {
     this.f1Service.getResults(this.race);
     this.roundSelected.emit(true);
   }

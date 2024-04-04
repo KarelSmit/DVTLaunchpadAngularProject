@@ -1,8 +1,10 @@
-@if (winner){
-  <div class="winner-info">
-    <h2>{{winner.givenName}} {{winner.familyName}}</h2>
-    <p>Nationality: {{winner.nationality}}</p>
-    <p>Date of Birth: {{winner.dateOfBirth}}</p>
-    <p>Wiki: {{winner.url}}</p>
-  </div>
-}
+<div class="winner-info">
+  @if (results$ | async; as results) {
+    @if (results.length) {
+      <h2>{{ results[0].Driver.givenName }} {{ results[0].Driver.familyName }}</h2>
+      <p>Nationality: {{ results[0].Driver.nationality }}</p>
+      <p>Date of Birth: {{ results[0].Driver.dateOfBirth }}</p>
+      <a href="{{ results[0].Driver.url }}">More info</a>
+    }
+  }
+</div>

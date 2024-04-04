@@ -1,16 +1,18 @@
-@if (results$ | async; as results){
+@if (results$ | async; as results) {
   <div class="podium">
-    <div class="silver">
-      <p>{{results[0].Driver.permanentNumber}}. {{results[0].Driver.givenName}} {{results[0].Driver.familyName}}</p>
-      <div></div>
-    </div>
-    <div class="gold">
-      <p>{{results[1].Driver.permanentNumber}}. {{results[1].Driver.givenName}} {{results[1].Driver.familyName}}</p>
-      <div></div>
-    </div>
-    <div class="bronze">
-      <p>{{results[2].Driver.permanentNumber}}. {{results[2].Driver.givenName}} {{results[2].Driver.familyName}}</p>
-      <div></div>
-    </div>
+    @if (results.length) {
+      <div class="podium-col silver">
+        <p>{{ results[0].Driver.givenName }} {{ results[0].Driver.familyName }}</p>
+        <div id="silver-step"></div>
+      </div>
+      <div class="podium-col gold">
+        <p>{{ results[1].Driver.givenName }} {{ results[1].Driver.familyName }}</p>
+        <div id="gold-step"></div>
+      </div>
+      <div class="podium-col bronze">
+        <p>{{ results[2].Driver.givenName }} {{ results[2].Driver.familyName }}</p>
+        <div id="bronze-step"></div>
+      </div>
+    }
   </div>
 }

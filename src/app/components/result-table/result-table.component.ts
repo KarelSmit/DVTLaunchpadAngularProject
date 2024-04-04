@@ -13,7 +13,7 @@ import {ReactiveFormsModule} from '@angular/forms';
   templateUrl: './result-table.component.html',
   styleUrl: './result-table.component.css'
 })
-export class ResultTableComponent{
+export class ResultTableComponent {
   private countryList: { [key: string]: string } = {
     American: 'US',
     Argentine: 'AR',
@@ -48,7 +48,7 @@ export class ResultTableComponent{
   f1Service = inject(F1Service);
   results$ = this.f1Service.results$;
 
-  getFlag(country: string){
+  getFlag(country: string) {
     return `https://flagsapi.com/${this.countryList[country]}/flat/64.png`;
   }
 }
