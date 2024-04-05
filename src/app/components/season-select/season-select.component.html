@@ -1,0 +1,7 @@
+@if (seasons$ | async; as seasons) {
+  <select class="custom-select" name="season-select" [(ngModel)]="year" (change)="changeYear()">
+    @for (season of seasons; track season) {
+      <option [ngValue]="season">{{ season }}</option>
+    }
+  </select>
+}

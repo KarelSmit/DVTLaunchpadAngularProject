@@ -1,0 +1,28 @@
+@if (results$ | async; as results) {
+  <div class="result-list">
+    @for (result of results; track result.position) {
+      <div class="result-item">
+        <div class="result-left">
+          <p class="result-position">{{ result.position }}</p>
+          <img src="{{getFlag(result.Driver.nationality)}}"
+               class="result-flag">
+          <div class="result-driver">
+            <p
+              class="result-driver-name">{{ result.Driver.givenName }}  {{ result.Driver.familyName }}</p>
+            <p class="result-driver-team">{{ result.Constructor.constructorId.toUpperCase() }}</p>
+          </div>
+        </div>
+        <div class="result-right">
+          <p class="result-time">
+            @if (result?.Time) {
+              {{ result?.Time?.time }}
+            } @else {
+              DNF
+            }
+          </p>
+          <p class="result-points">{{ result.points }}</p>
+        </div>
+      </div>
+    }
+  </div>
+}

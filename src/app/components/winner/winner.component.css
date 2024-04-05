@@ -1,0 +1,17 @@
+.winner-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 2rem;
+
+  h2{
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  img{
+    height: 200px;
+    width: 150px;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="winner-info">
+  @if (results$ | async; as results) {
+    @if (results.length) {
+      <h2>{{ results[0].Driver.givenName }} {{ results[0].Driver.familyName }}</h2>
+      <h4>Nationality: {{ results[0].Driver.nationality }}</h4>
+      <h4>Date of Birth: {{ results[0].Driver.dateOfBirth }}</h4>
+      @if (wiki$ | async; as wiki){
+        <img src="{{wiki.query.pages[f1Service.pageId].thumbnail.source}}">
+        <p>{{wiki.query.pages[f1Service.pageId].extract}}</p>
+      }
+      <a href="{{ results[0].Driver.url }}">More info</a>
+    }
+
+  }
+</div>

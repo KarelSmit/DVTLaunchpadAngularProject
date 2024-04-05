@@ -1,0 +1,15 @@
+.custom-select {
+  min-width: 30%;
+  height: 35px;
+}
+
+select {
+  width: 100%;
+  font-size: 1.15rem;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
