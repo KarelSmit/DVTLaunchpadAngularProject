@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {F1Service} from '../../services/f1.service';
 import {AsyncPipe} from '@angular/common';
 
@@ -11,7 +11,7 @@ import {AsyncPipe} from '@angular/common';
   templateUrl: './winner.component.html',
   styleUrl: './winner.component.css'
 })
-export class WinnerComponent {
+export class WinnerComponent{
   f1Service = inject(F1Service);
   results$ = this.f1Service.results$;
   wiki$ = this.f1Service.wiki$;

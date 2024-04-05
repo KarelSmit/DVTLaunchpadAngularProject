@@ -3,7 +3,7 @@ import {BehaviorSubject, catchError, Observable, of, retry, take} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {SeasonsResponse} from '../models/f1-seasons';
 import {Race, RoundsResponse} from '../models/f1-rounds';
-import {Driver, Result, ResultsResponse} from '../models/f1-results';
+import {Result, ResultsResponse} from '../models/f1-results';
 import {WikiResponse} from '../models/wiki-result';
 
 @Injectable({
@@ -12,14 +12,14 @@ import {WikiResponse} from '../models/wiki-result';
 export class F1Service {
   private year = '';
   private race = '';
-
+  private wikiLink = '';
   seasons$ = new BehaviorSubject<string[]>([]);
   rounds$ = new BehaviorSubject<Race[]>([]);
   results$ = new BehaviorSubject<Result[]>([]);
   wiki$ = new BehaviorSubject<WikiResponse>({} as WikiResponse);
 
   raceName = '';
-  private wikiLink = '';
+  pageId = '';
 
   constructor(private http: HttpClient) {
   }
@@ -178,13 +178,13 @@ export class F1Service {
         this.raceName = this.race + ` ${String.fromCharCode(183)} ` + response.MRData.RaceTable.Races[0].raceName;
         this.wikiLink = response.MRData.RaceTable.Races[0].Results[0].Driver.url;
         this.results$.next(results);
+        setTimeout(()=> {this.getInfo()}, 5000);
       })
-    this.getInfo();
   }
 
   getInfo() {
     const title = this.wikiLink.split('/').pop();
-    this.http.get<WikiResponse>(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts|pageimages&exintro&explaintext&redirect=true&titles=${title}&origin=*`)
+    this.http.get<WikiResponse>(`https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts|pageimages&exintro&explaintext&titles=${title}`)
       .pipe(
         retry(2),
         take(1),
@@ -196,6 +196,7 @@ export class F1Service {
         }))
       .subscribe((response) => {
         this.wiki$.next(response);
+        this.pageId = Object.keys(response.query.pages)[0];
       })
   }
 

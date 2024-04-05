@@ -19,4 +19,5 @@ export class AppComponent {
   seasonSelected = false;
   roundSelected = false;
   f1Service = inject(F1Service);
+  protected readonly setTimeout = setTimeout;
 }
